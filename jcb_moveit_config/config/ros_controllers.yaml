@@ -1,0 +1,29 @@
+# arm_controller1:
+#   type: effort_controllers/JointPositionController
+#   joint: Joint_1
+#   pid: {p: 2000, d: 700, i: 0}
+
+# arm_controller2:
+#   type: effort_controllers/JointPositionController
+#   joint: Joint_2
+#   pid: {p: 6000, d: 1000, i: 0}
+
+# arm_controller3:
+#   type: effort_controllers/JointPositionController
+#   joint: Joint_3
+#   pid: {p: 12000, d: 180, i: 120}
+
+arm_controller:
+    type: effort_controllers/JointTrajectoryController
+    joints:
+        - Joint_1
+        - Joint_2
+        - Joint_3
+    gains:
+        Joint_1: {p: 14000.0, d: 1000, i: 0}
+        Joint_2: {p: 6000, d: 1000, i: 0}
+        Joint_3: {p: 12000, d: 180, i: 120}
+    constraints:
+        goal_time: 0.6
+        stopped_velocity_tolerance: 0
+    state_publish_rate: 25

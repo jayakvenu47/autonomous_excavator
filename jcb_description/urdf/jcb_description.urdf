@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="jcb_description">
+
+    <link name="world"/>
+    <joint name="world_joint" type="fixed">
+        <origin xyz="0 0 0.32" rpy="0 0 0" />
+        <parent link="world"/>
+        <child link="base_link"/>
+    </joint>
+
+    <link name="base_link">
+        
+        <inertial>
+            <origin xyz="-0.58958 -1.2089 -0.058352" rpy="0 0 0" />
+            <mass value="12.619" />
+            <inertia ixx="0.10924" ixy="0.0065068" ixz="-0.00031555" iyy="0.072779" iyz="0.0055825" izz="0.11304" />
+        </inertial>
+        <!-- -0.095 -0.1292 -0.0365 -->
+        <visual>
+            <origin xyz="-0.49458 0.070848 1.2454" rpy="1.5708 0 3.1416" />
+            <geometry>
+                <mesh filename="package://jcb_description/meshes/base_link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.79216 0.81961 0.93333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.49458 0.070848 1.2454" rpy="1.5708 0 3.1416" />
+            <geometry>
+                <mesh filename="package://jcb_description/meshes/base_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="Link_1">
+        
+        <inertial>
+            <origin xyz="-0.0041607 0.52862 1.7433E-09" rpy="0 0 0" />
+            <mass value="106.93" />
+            <inertia ixx="5.1479" ixy="-1.2145" ixz="-8.6944E-09" iyy="1.3676" iyz="2.3301E-07" izz="6.0491" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0 0" rpy="1.5708 0 3.1416" />
+            <geometry>
+                <mesh filename="package://jcb_description/meshes/Link_1.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.79216 0.81961 0.93333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="1.5708 0 3.1416" />
+            <geometry>
+                <mesh filename="package://jcb_description/meshes/Link_1.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="Joint_1" type="revolute">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <parent link="base_link" />
+        <child link="Link_1" />
+        <axis xyz="0 1 0" />
+        <limit lower="-2.2441" upper="0" effort="300" velocity="1.0471" />
+    </joint>
+
+    <link name="Link_2">
+        <inertial>
+            <origin xyz="0.22115 0.23043 -0.070206" rpy="0 0 0" />
+            <mass value="16.196" />
+            <inertia ixx="0.49447" ixy="-0.74465" ixz="-0.00015961" iyy="1.3533" iyz="-8.8329E-05" izz="1.8132" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0.07025 0" rpy="1.5708 0 3.1416" />
+            <geometry>
+                <mesh filename="package://jcb_description/meshes/Link_2.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.79216 0.81961 0.93333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="1.5708 0 3.1416" />
+            <geometry>
+                <mesh filename="package://jcb_description/meshes/Link_2.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="Joint_2" type="revolute">
+        <origin xyz="-0.49448 0 1.2454" rpy="0 0 0" />
+        <parent link="Link_1" />
+        <child link="Link_2" />
+        <axis xyz="0 1 0" />
+        <limit lower="-1.938" upper="0" effort="50" velocity="1.0471" />
+    </joint>
+    <link name="Link_3">
+        
+        <inertial>
+            <origin xyz="-0.072234 0.24876 -0.04" rpy="0 0 0" />
+            <mass value="5.5741" />
+            <inertia ixx="0.18671" ixy="-0.012486" ixz="-3.3237E-07" iyy="0.14536" iyz="-1.6462E-07" izz="0.12711" />
+        </inertial>
+
+        <visual>
+            <origin xyz="0 0.04 0" rpy="1.5708 0 3.1416" />
+            <geometry>
+                <mesh filename="package://jcb_description/meshes/Link_3.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.79216 0.81961 0.93333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="1.5708 0 3.1416" />
+            <geometry>
+                <mesh filename="package://jcb_description/meshes/Link_3.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="Joint_3" type="revolute">
+        <origin xyz="-0.754581904896383 0 0.569201714621058" rpy="0 0 0" />
+        <parent link="Link_2" />
+        <child link="Link_3" />
+        <axis xyz="0 1 0" />
+        <limit lower="-3.3241" upper="0" effort="10" velocity="1.0471" />
+    </joint>
+    
+    <transmission name="trans_Joint_1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="Joint_1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="Joint_1_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_Joint_2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="Joint_2">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="Joint_2_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_Joint_3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="Joint_3">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="Joint_3_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+</robot>

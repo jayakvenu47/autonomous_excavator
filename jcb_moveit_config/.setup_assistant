@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: jcb_description
+    relative_path: urdf/jcb_description.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/jcb_description.srdf
+  CONFIG:
+    author_name: max
+    author_email: max@aalto.fi
+    generated_timestamp: 1655125007

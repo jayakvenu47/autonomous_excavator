@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <node pkg="jcb_moveit_config" type="planning_path.py" name="get_planned_joints" output="screen"/>
+
+</launch>
